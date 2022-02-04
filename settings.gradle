@@ -1,0 +1,2 @@
+rootProject.name = "Offline_Caching_Android"
+include ':app'
