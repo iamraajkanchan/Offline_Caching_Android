@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface RestaurantDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRestaurant(restaurants: List<Restaurant>)
+    suspend fun insertRestaurants(restaurants: List<Restaurant>)
 
     @Query("DELETE FROM restaurants")
     suspend fun deleteAllRestaurants()

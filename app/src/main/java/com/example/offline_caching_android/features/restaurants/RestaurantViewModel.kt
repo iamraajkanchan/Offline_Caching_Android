@@ -10,10 +10,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RestaurantViewModel @Inject constructor(restaurantRepository: RestaurantRepository) : ViewModel() {
+class RestaurantViewModel @Inject constructor(restaurantRepository: RestaurantRepository) :
+    ViewModel() {
+    /*
+
     private val restaurantMutableLiveData = MutableLiveData<List<Restaurant>>()
 
-    /*
     val restaurantLiveData: LiveData<List<Restaurant>> = restaurantMutableLiveData
     init {
         viewModelScope.launch {
@@ -22,6 +24,7 @@ class RestaurantViewModel @Inject constructor(restaurantRepository: RestaurantRe
             restaurantMutableLiveData.value = restaurants
         }
     }
+
     */
 
     val restaurants = restaurantRepository.getRestaurants().asLiveData()

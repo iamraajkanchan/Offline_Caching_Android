@@ -25,8 +25,8 @@ class RestaurantActivity : AppCompatActivity() {
 
             restaurantViewModel.restaurants.observe(this@RestaurantActivity) { result ->
                 restaurantAdapter.submitList(result.data)
-                progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
-                tvError.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
+                progressBar.isVisible = result is Resource.Loading<*> && result.data.isNullOrEmpty()
+                tvError.isVisible = result is Resource.Error<*> && result.data.isNullOrEmpty()
                 tvError.text = result.error?.localizedMessage
             }
         }

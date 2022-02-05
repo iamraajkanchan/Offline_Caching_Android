@@ -18,7 +18,7 @@ class RestaurantRepository @Inject constructor(
         }, saveFetchResult = { restaurants ->
             restaurantDatabase.withTransaction {
                 restaurantDao.deleteAllRestaurants()
-                restaurantDao.insertRestaurant(restaurants)
+                restaurantDao.insertRestaurants(restaurants)
             }
         })
 }
