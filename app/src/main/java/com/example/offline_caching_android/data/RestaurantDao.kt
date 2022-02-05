@@ -1,8 +1,17 @@
 package com.example.offline_caching_android.data
 
-import androidx.room.Dao
+import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RestaurantDao {
-    fun getRestaurants(): List<Restaurant>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertRestaurant(restaurants: List<Restaurant>)
+
+    @Query("DELETE FROM restaurants")
+    suspend fun deleteAllRestaurants()
+
+    @Query("SELECT * FROM restaurants")
+    fun getRestaurants(): Flow<List<Restaurant>>
 }

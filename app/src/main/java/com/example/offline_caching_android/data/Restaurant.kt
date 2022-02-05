@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 *
 * */
 
-@Entity(tableName = "restaurant")
+@Entity(tableName = "restaurants")
 data class Restaurant(
     @PrimaryKey(autoGenerate = false) val uid: String,
     val name: String,
